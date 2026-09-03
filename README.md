@@ -41,6 +41,12 @@ list short and makes the styling easy to explain and defend in the interview.
 - Add unit tests for the `seedAvailability` hash and the `useWaitlist` hook.
 - Improve accessibility further: ARIA live regions for waitlist status
   changes, and a skip-to-content link.
+- Add dark mode capabilities
+- Add a button under or next to the waitlist joined count as a modal to see which waitlists you're on, youre place in line, and what time you joined
+- Convert cards in a 3 card per row layout to a 1 card per row layout with collapsible cards that can expand to show more information about the brewery
+- Add another button to the left of the Join/Leave button in each card to "See Waitlist" to show the current waitlist of the brewery like how may people are there and how big their parties are.
+- Add functionality to add partysize to the waitlist - join waitlist may open a popup to enter in the info like name and party size
+- Add confirmation modal to the leave waitlist to prevent accidental removals
 
 ## AI-usage log
 
