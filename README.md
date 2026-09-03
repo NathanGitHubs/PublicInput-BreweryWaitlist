@@ -51,10 +51,6 @@ list short and makes the styling easy to explain and defend in the interview.
 - Where AI got it wrong / hallucinated: N/A — the API endpoint and response
   shape were verified against the live Open Brewery DB documentation before
   coding.
-- What you changed or rejected by hand, and why: (fill in — e.g. adjusted the
-  color palette, tweaked the card layout, renamed variables for clarity)
+- What you changed or rejected by hand, and why: adjusted the
+  color palette, tweaked the card layout
 ```
-
-> **Note:** Edit the last two lines of the AI log to reflect your actual
-> experience — what you personally changed, rejected, or adjusted. Reviewers
-> want to see your judgment, not just the AI's output.
