@@ -1,0 +1,211 @@
+/* ===========================================================================
+   styles.css — Single global stylesheet.
+   Vanilla CSS chosen over Tailwind/CSS Modules to keep the dependency list
+   short and make the styling easy to explain in the interview.
+   =========================================================================== */
+
+/* --- Design tokens ------------------------------------------------------- */
+:root {
+  --color-bg: #ebf5fa;          /* warm off-white background */
+  --color-surface: #ffffff;     /* card background */
+  --color-text: #1a1a1a;        /* primary text */
+  --color-muted: #6b6b6b;       /* secondary text */
+  --color-border: #e0ddd5;      /* card borders */
+  --color-primary: #047dba;     /* brewery / navy accent */
+  --color-primary-dark: #2152c2;
+  --color-low: #1ac969;         /* green — plenty of seats */
+  --color-medium: #ffc94a;      /* amber — getting full */
+  --color-high: #ff365a;         /* red — nearly full */
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --max-width: 1100px;
+}
+
+/* --- Reset --------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* --- Layout -------------------------------------------------------------- */
+.app {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.subtitle {
+  color: var(--color-muted);
+  margin-top: 4px;
+  font-size: 1rem;
+}
+
+.waitlist-count {
+  text-align: center;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* --- Status messages ----------------------------------------------------- */
+.status-message {
+  text-align: center;
+  padding: 48px 16px;
+  font-size: 1.1rem;
+  color: var(--color-muted);
+}
+
+.error-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --- Card grid ----------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: 20px;
+  /* Auto-fill columns: each card is at least 280px wide, and the grid wraps
+     to more columns as the viewport grows. On mobile it collapses to one. */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* --- Card ---------------------------------------------------------------- */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.card-type {
+  font-size: 0.85rem;
+  text-transform: capitalize;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+.card-location {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.card-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* --- Availability badges ------------------------------------------------- */
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.badge-low    { background: var(--color-low); }
+.badge-medium { background: var(--color-medium); }
+.badge-high   { background: var(--color-high); }
+
+/* --- Buttons ------------------------------------------------------------- */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  /* margin-top: auto pushes the button to the bottom of the flex card,
+     so all buttons align even when brewery names wrap to multiple lines. */
+  margin-top: auto;
+}
+
+/* Visible focus outline for keyboard navigation */
+.btn:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-join {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn-join:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-leave {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+.btn-leave:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* --- Mobile tweaks ------------------------------------------------------- */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .app {
+    padding: 16px 12px 32px;
+  }
+
+  /* Single column on small phones */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
